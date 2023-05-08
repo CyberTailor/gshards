@@ -10,9 +10,10 @@ Tools
 
 Extract package name from `shard.yml`.
 
-### gshards-has-targets
+### gshards-print-targets
 
-Find out if any targets are defined in `shard.yml`.
+Print newline-separated parts of the command line (`-o target source-file.cr`)
+required to build targets defined in `shard.yml`.
 
 License
 -------

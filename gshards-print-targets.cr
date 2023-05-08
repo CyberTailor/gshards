@@ -7,8 +7,10 @@ yaml = File.open("shard.yml") do |file|
   YAML.parse(file)
 end
 
-if yaml["targets"]?
-  exit(0)
+if !yaml["targets"]?
+  exit(1)
 end
 
-exit(1)
+yaml["targets"].as_h.each do |key, value|
+  puts Process.quote(["-o", key.as_s, value["main"].as_s])
+end

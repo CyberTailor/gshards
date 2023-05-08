@@ -3,15 +3,15 @@ PREFIX  ?= /usr/local
 BINDIR  ?= $(PREFIX)/bin
 
 .PHONY: all
-all: gshards-get-pkgname gshards-has-targets
+all: gshards-get-pkgname gshards-print-targets
 
 install: all
 	mkdir -p "$(DESTDIR)$(BINDIR)"
 	install -m 0755 gshards-get-pkgname "$(DESTDIR)$(BINDIR)"
-	install -m 0755 gshards-has-targets "$(DESTDIR)$(BINDIR)"
+	install -m 0755 gshards-print-targets "$(DESTDIR)$(BINDIR)"
 
 gshards-get-pkgname: gshards-get-pkgname.cr
 	$(CRYSTAL) build $(CRFLAGS) $<
 
-gshards-has-targets: gshards-has-targets.cr
+gshards-print-targets: gshards-print-targets.cr
 	$(CRYSTAL) build $(CRFLAGS) $<
